@@ -1,0 +1,19 @@
+<div>
+    <button (click)="getUsersData()">Load Users</button>
+    <h2>Display Users</h2>
+    <ul>
+        <li *ngFor="let user of users">
+        {{ user.name }} - {{ user.email }}
+        </li>
+    </ul>
+</div>
+
+<div>
+    <button (click)="displayPhotos()">Load Photos</button>
+    <h2>Display Photos</h2>
+    <ul>
+        <li *ngFor="let photo of photosData">
+        <img [src]="photo.thumbnailUrl" alt="{{ photo.title }}" />
+        </li>
+    </ul>
+</div>
