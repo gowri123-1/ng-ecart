@@ -1,5 +1,5 @@
 <form [formGroup]="contactForm" (ngSubmit)="submitForm()">
-  <label for="name">Reactive Name:</label>
+  <label for="name">Name:</label>
   <input id="name" type="text" formControlName="name" />
   <div
     *ngIf="contactForm.get('name')?.touched && contactForm.get('name')?.invalid"
