@@ -1,4 +1,35 @@
 <!-- <app-template-driven-form></app-template-driven-form> -->
  <!-- <app-reactive-form></app-reactive-form> -->
   <!-- <app-display-users></app-display-users> -->
-  <p>Hello</p>
+
+  <!-- <app-pipe-demo></app-pipe-demo> -->
+  <!-- <app-header></app-header> -->
+
+  <!-- <nav class="navbar">
+  <a href="#" class="nav-link">Home</a>
+  <a [routerLink]="['/products']" class="nav-link">Products</a>
+  <a routerLink="/products/detail" class="nav-link">Product Detail</a>
+  <a routerLink="/admin" class="nav-link">Admin</a>
+</nav>
+<div class="main-layout">
+  <app-common-side-nav></app-common-side-nav>
+  <div class="main-content">
+<h1>Angular Forms Demo</h1>
+
+ <router-outlet></router-outlet> -->
+
+ <h1>My Angular App</h1>
+
+<!-- Print token if available-->
+ <div *ngIf="token; else noToken">
+  <p><strong>Token:</strong> {{ token }}</p>
+</div>
+
+<ng-template #noToken>
+  <p>No token found. Please login.</p>
+</ng-template>
+
+<hr>
+
+<!--Router outlet shows Login or Products -->
+<router-outlet></router-outlet>

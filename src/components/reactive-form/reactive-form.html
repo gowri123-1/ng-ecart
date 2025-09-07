@@ -22,3 +22,28 @@
   <br />
   <button type="submit">Submit</button>
 </form>
+
+
+<!-- <h2>Reactive Form Example</h2>
+
+<form [formGroup]="myForm" (ngSubmit)="onSubmit()">
+  <label>Name:</label>
+  <input type="text" formControlName="name" />
+  <div *ngIf="myForm.get('name')?.invalid && myForm.get('name')?.touched">
+    Name is required (min 3 chars).
+  </div>
+
+  <label>Age:</label>
+  <input type="number" formControlName="age" />
+  <div *ngIf="myForm.get('age')?.invalid && myForm.get('age')?.touched">
+    Age must be at least 18.
+  </div>
+
+  <label>Email:</label>
+  <input type="email" formControlName="email" />
+  <div *ngIf="myForm.get('email')?.invalid && myForm.get('email')?.touched">
+    Enter a valid email.
+  </div> 
+ 
+  <button type="submit" [disabled]="myForm.invalid">Submit</button>
+</form>  -->

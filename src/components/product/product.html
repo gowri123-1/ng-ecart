@@ -1,0 +1,12 @@
+<h2>Product List</h2>
+<button (click)="logout()">Logout</button>
+<hr>
+
+<div *ngFor="let p of products">
+  <h3>{{ p.name }}</h3>
+  <p>Category: {{ p.category }}</p>
+  <p>Price: {{ p.price }}</p>
+  <p>Stock: {{ p.stock }}</p>
+  <hr>
+</div>
+

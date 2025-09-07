@@ -1,5 +1,7 @@
 import { Component, signal } from '@angular/core';
 import { TemplateDrivenForm } from '../components/template-driven-form/template-driven-form';
+// import { ProductsService } from './products/products-service';
+
 
 @Component({
   selector: 'app-root',
@@ -8,5 +10,23 @@ import { TemplateDrivenForm } from '../components/template-driven-form/template-
   styleUrl: './app.scss',
 })
 export class App {
-  protected readonly title = signal('angular-class-demo');
+  // protected readonly title = signal('angular-class-demo');
+  // constructor(private productService: ProductsService) {
+
+  // }
+
+  // ngOnInit() {
+  //   this.productService.currentSubjectListener.subscribe(data => {
+  //     console.log('Received data in APP component ', data);
+  //   }
+  //   )
+
+  // }
+
+  token: string | null = null;
+
+  ngOnInit(): void {
+    // get token from localStorage
+    this.token = localStorage.getItem('authToken');
+  }
 }

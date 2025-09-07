@@ -1,0 +1,16 @@
+<p>product-detail works!</p>
+<p>Your selected product id is </p><b> {{ productId }}</b>
+<!-- <p>{{productDetails | json }}</p> -->
+
+<div>
+    <h2>Product Details</h2>
+    <p>Name: {{ productDetails.name }}</p>
+    <p>Description: {{ productDetails.description }}</p>
+    <p>Price: {{ productDetails.price | currency }}</p>
+    <p>Category: {{ productDetails.category }}</p>
+</div>
+
+<p>{{userData | json}}</p>
+
+<button (click)="removeLocalData()">Remove Local Storage</button>
+<button (click)="deleteLocalData()">Delete Local Storage</button>

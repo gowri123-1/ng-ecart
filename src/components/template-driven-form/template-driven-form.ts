@@ -14,12 +14,9 @@ export class TemplateDrivenForm {
     email: '',
     password: ''
   }
-
-  // name = '';
-  // email = '';
-
   submitForm(form: NgForm) {
     console.log(form);
   }
+ 
 
 }

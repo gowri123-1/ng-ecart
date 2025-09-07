@@ -1,6 +1,6 @@
 <div>
     <button (click)="getUsersData()">Load Users</button>
-    <h2>Display Users</h2>
+    <h2 [appHighlight]="'blue'">Display Users</h2>
     <ul>
         <li *ngFor="let user of users">
         {{ user.name }} - {{ user.email }}
@@ -10,7 +10,7 @@
 
 <div>
     <button (click)="displayPhotos()">Load Photos</button>
-    <h2>Display Photos</h2>
+    <h2 [appHighlight]="'yellow'">Display Photos</h2>
     <ul>
         <li *ngFor="let photo of photosData">
         <img [src]="photo.thumbnailUrl" alt="{{ photo.title }}" />
@@ -25,3 +25,6 @@
     <button (click)="addUser()">Add User</button>
 </div>
 <button (click)="subscribeObservable()">Subscribe Observable</button>
+<div style="border: 2px solid;" [appHighlight]="'green'">
+    Custom Directive example
+</div>

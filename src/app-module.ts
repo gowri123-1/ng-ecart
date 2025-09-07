@@ -7,25 +7,44 @@ import { TemplateDrivenForm } from './components/template-driven-form/template-d
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import { ReactiveForm } from './components/reactive-form/reactive-form';
 import { DisplayUsers } from './components/display-users/display-users';
-import { HttpClientModule } from '@angular/common/http';
+import { HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http';
+import { Highlight } from './directives/highlight';
+import { StarPipePipe } from './pipes/star-pipe';
+import { PipeDemo } from './components/pipe-demo/pipe-demo';
+import { Header } from './components/header/header';
+import { CommonSideNavModule } from './components/common-side-nav/common-side-nav-module';
+import { Login } from './components/login/login';
+import { Product } from './components/product/product';
+import { AuthInterceptor } from './app/auth-interceptor';
 
 @NgModule({
   declarations: [
     App,
     TemplateDrivenForm,
     ReactiveForm,
-    DisplayUsers
+    DisplayUsers,
+    Highlight,
+    StarPipePipe,
+    PipeDemo,
+    Header,
+    Login,
+    Product,
+    
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     FormsModule,
     ReactiveFormsModule,
-    HttpClientModule
+    HttpClientModule,
+    CommonSideNavModule,
   ],
   providers: [
-    provideBrowserGlobalErrorListeners()
+    provideBrowserGlobalErrorListeners(),
+     { provide: HTTP_INTERCEPTORS, useClass: AuthInterceptor, multi: true }
   ],
   bootstrap: [App]
 })
 export class AppModule { }
+
+

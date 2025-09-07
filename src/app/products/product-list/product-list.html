@@ -1,0 +1,12 @@
+<p>product-list works!</p>
+
+<p>Here is the list of products:</p>
+<ul>
+    <li *ngFor="let product of productsList">
+        <a [routerLink]="['/products/detail', product.id]">{{ product.name }}</a> - {{ product.description }}
+    </li>
+</ul>
+
+<button (click)="sendMessageFromComponent()">Send Message</button>
+
+<button (click)="triggerObservable()"> Learn Observable</button>
