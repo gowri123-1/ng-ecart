@@ -1,0 +1,43 @@
+<div class="product-card">
+    <form [formGroup]="productForm" (ngSubmit)="onSubmit()" class="product-form">
+      <h2>Create Product</h2>
+      <label>
+        Name:
+        <input formControlName="name" class="input-control"/>
+      </label>
+      <label>
+        Category:
+        <input formControlName="category" class="input-control"/>
+      </label>
+      <label>
+        Price:
+        <input formControlName="price" type="number" class="input-control"/>
+      </label>
+      <label>
+        Stock:
+        <input formControlName="stock" type="number" class="input-control"/>
+      </label>
+      <label>
+        Ratings:
+        <input type="number" (keyup.enter)="addRating($event)" class="input-control"/>
+      </label>
+      <div class="array-container">
+        <span *ngFor="let rating of ratings.controls; let i = index" class="array-item">
+          {{ rating.value }}
+          <button type="button" (click)="removeRating(i)" class="remove-btn">Remove</button>
+        </span>
+      </div>
+      <label>
+        Tags:
+        <input #tagInput type="text" (keyup.enter)="addTag(tagInput.value); tagInput.value=''" class="input-control"/>
+      </label>
+      <div class="array-container">
+        <span *ngFor="let tag of tags.controls; let i = index" class="array-item">
+          {{ tag.value }}
+          <button type="button" (click)="removeTag(i)" class="remove-btn">Remove</button>
+        </span>
+      </div>
+      <button type="submit" [disabled]="!productForm.valid" class="submit-btn">Create Product</button>
+    </form>
+  </div>
+  

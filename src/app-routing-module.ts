@@ -23,13 +23,16 @@ import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { Login } from './components/login/login';
 import { Product } from './components/product/product';
-import { AuthGuard } from './app/auth-guard';
+import { AuthGuard, AuthGuardSellerAccess } from './app/auth-guard';
+import { CreateProduct } from './app/create-product/create-product';
 
 
 const routes: Routes = [
   { path: '', redirectTo: '/login', pathMatch: 'full' },
   { path: 'login', component: Login },
-  { path: 'products', component: Product, canActivate: [AuthGuard] } // protected
+  { path: 'products', component: Product, canActivate: [AuthGuard] },
+  { path: 'createProducts', component: CreateProduct, canActivate: [AuthGuardSellerAccess] } // protected
+  // protected
 ];
 
 @NgModule({

@@ -1,12 +1,13 @@
 import { Component } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Router } from '@angular/router';
+import { environment } from '../../environment';
 
 @Component({
   selector: 'app-login',
   standalone: false,
   templateUrl: './login.html',
-  styleUrl: './login.scss'
+  styleUrls: ['./login.scss']
 })
 export class Login {
 
@@ -22,13 +23,13 @@ export class Login {
   submitForm(contactForm: any) {
     
     if (contactForm.valid) {
-      this.http.post<any>('http://localhost:5000/api/users/login', this.formData)
+      this.http.post<any>(environment.apiUrl +'/users/login', this.formData)
         .subscribe({
           next: (response) => {
             // save token
             console.log("response",response)
-            localStorage.setItem('authToken', response.accessToken
-);
+            localStorage.setItem('authToken', response.accessToken);
+            localStorage.setItem('userData', JSON.stringify(response.data));
             alert('Login Successful!');
 
             // redirect to products page

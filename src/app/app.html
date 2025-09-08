@@ -23,6 +23,7 @@
 <!-- Print token if available-->
  <div *ngIf="token; else noToken">
   <p><strong>Token:</strong> {{ token }}</p>
+  <button type="button" (click)="createProduct()">createProduct</button>
 </div>
 
 <ng-template #noToken>

@@ -2,11 +2,13 @@
 <button (click)="logout()">Logout</button>
 <hr>
 
-<div *ngFor="let p of products">
-  <h3>{{ p.name }}</h3>
-  <p>Category: {{ p.category }}</p>
-  <p>Price: {{ p.price }}</p>
-  <p>Stock: {{ p.stock }}</p>
-  <hr>
-</div>
 
+<div class="product-container">
+  <div class="product-card" *ngFor="let p of products">
+    <img src="assets/product-image.jpg" alt="Product Image" class="product-image" />
+    <h3 class="product-title"> {{ p.name }}</h3>
+    <p class="product-description">Category: {{ p.category }}</p>
+    <p class="product-price"> ${{ p.price }} Qnt: {{ p.stock }}</p>
+    <button class="add-to-cart-button">Add to Cart</button>
+  </div>
+</div>

@@ -16,6 +16,8 @@ import { CommonSideNavModule } from './components/common-side-nav/common-side-na
 import { Login } from './components/login/login';
 import { Product } from './components/product/product';
 import { AuthInterceptor } from './app/auth-interceptor';
+import { AuthenticationInterceptor } from './authInterceptor';
+import { CreateProduct } from './app/create-product/create-product';
 
 @NgModule({
   declarations: [
@@ -29,6 +31,7 @@ import { AuthInterceptor } from './app/auth-interceptor';
     Header,
     Login,
     Product,
+    CreateProduct,
     
   ],
   imports: [
@@ -41,7 +44,12 @@ import { AuthInterceptor } from './app/auth-interceptor';
   ],
   providers: [
     provideBrowserGlobalErrorListeners(),
-     { provide: HTTP_INTERCEPTORS, useClass: AuthInterceptor, multi: true }
+     { provide: HTTP_INTERCEPTORS, useClass: AuthInterceptor, multi: true },
+     {
+      provide: HTTP_INTERCEPTORS,
+      useClass: AuthenticationInterceptor,
+      multi: true
+    }
   ],
   bootstrap: [App]
 })

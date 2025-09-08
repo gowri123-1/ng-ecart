@@ -1,5 +1,6 @@
 import { Component, signal } from '@angular/core';
 import { TemplateDrivenForm } from '../components/template-driven-form/template-driven-form';
+import { Router } from '@angular/router';
 // import { ProductsService } from './products/products-service';
 
 
@@ -23,10 +24,16 @@ export class App {
 
   // }
 
+  constructor(private router: Router) {}
+
   token: string | null = null;
 
   ngOnInit(): void {
     // get token from localStorage
     this.token = localStorage.getItem('authToken');
+  }
+
+  createProduct(){
+    this.router.navigate(['/createProducts']);
   }
 }
