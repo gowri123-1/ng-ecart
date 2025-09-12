@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 import { BehaviorSubject, filter, interval, map, of, Subject } from 'rxjs';
 
 
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpParams } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { environment } from '../../environment';
 
@@ -17,6 +17,14 @@ export class ProductsService {
 
   getProducts(): Observable<any> {
     return this.http.get(this.apiUrl);
+  }
+
+  searchProduct(value: string): Observable<any> {
+    let params = new HttpParams();
+    params = params.set('name', value.toString());
+    params = params.set('limit', 1);
+
+    return this.http.get(this.apiUrl + '/search', { params });
   }
    // Service as a singleton.
   // Subject and BehaviorSubject from RxJS for reactive state.

@@ -10,6 +10,7 @@ import { Router } from '@angular/router';
 })
 export class Product {
   products: any[] = [];
+  searchTerm: string = "";
 
   constructor(private productsService: ProductsService, private router: Router) {}
 
@@ -27,6 +28,17 @@ export class Product {
   logout() {
     localStorage.removeItem('authToken');
     this.router.navigate(['/login']);
+  }
+
+  search(){
+    this.productsService.searchProduct(this.searchTerm).subscribe({
+      next: (res) => {
+        this.products = res.data;
+      },
+      error: (err) => {
+        console.error('Error fetching products', err);
+      }
+    });
   }
 
 }

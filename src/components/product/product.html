@@ -4,6 +4,8 @@
 
 
 <div class="product-container">
+  <input type="text" placeholder="Search products..." [(ngModel)]="searchTerm" class="search-input" />
+  <button type="button" (click)="search()">Search</button>
   <div class="product-card" *ngFor="let p of products">
     <img src="assets/product-image.jpg" alt="Product Image" class="product-image" />
     <h3 class="product-title"> {{ p.name }}</h3>
